@@ -1,0 +1,11 @@
+sudo:required
+
+services:
+  - docker 
+
+before_install:
+  - doker build -t ranjit/workflow-test -f Dockerfile.dev .
+
+script:
+  - docker run ranjit/workflow-test npm run test -- --coverage
+
